@@ -31,9 +31,12 @@ OPENGL_PKGCONFIGS = "glx glamor dri3"
 PACKAGECONFIG ??= "${XORG_CRYPTO} \
                    ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', '${OPENGL_PKGCONFIGS}', '', d)} \
 "
+LIBEGL ?= "libegl"
+LIBEGL:imxgpu = "libegl-imx"
+
 PACKAGECONFIG[dri3] = "-Ddri3=true,-Ddri3=false,libxshmfence"
 PACKAGECONFIG[glx] = "-Dglx=true,-Dglx=false,virtual/libgl virtual/libx11"
-PACKAGECONFIG[glamor] = "-Dglamor=true,-Dglamor=false,libepoxy virtual/libgbm,libegl"
+PACKAGECONFIG[glamor] = "-Dglamor=true,-Dglamor=false,libepoxy virtual/libgbm,${LIBEGL}"
 PACKAGECONFIG[unwind] = "-Dlibunwind=true,-Dlibunwind=false,libunwind"
 PACKAGECONFIG[xinerama] = "-Dxinerama=true,-Dxinerama=false"
 
