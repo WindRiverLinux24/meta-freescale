@@ -510,28 +510,28 @@ MACHINE_GSTREAMER_1_0_PLUGIN:mx8ulp-nxp-bsp ?= "imx-gst1.0-plugin"
 MACHINE_GSTREAMER_1_0_PLUGIN:mx93-nxp-bsp   ?= "imx-gst1.0-plugin"
 
 # GStreamer forked recipes
-PREFERRED_VERSION_gstreamer1.0:mx8-nxp-bsp              ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx8-nxp-bsp  ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base:mx8-nxp-bsp ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good:mx8-nxp-bsp ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0:mx9-nxp-bsp              ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx9-nxp-bsp  ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-base:mx9-nxp-bsp ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-good:mx9-nxp-bsp ??= "1.22.5.imx"
+PREFERRED_VERSION_gstreamer1.0:mx8-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx8-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0:mx9-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-bad:mx9-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-base:mx9-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-good:mx9-nxp-bsp ??= "1.24.0.imx"
 
 # GStreamer copied recipes
-PREFERRED_VERSION_gst-devtools:mx8-nxp-bsp              ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-libav:mx8-nxp-bsp        ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx8-nxp-bsp ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-python:mx8-nxp-bsp       ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx8-nxp-bsp  ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-vaapi:mx8-nxp-bsp        ??= "1.22.5.imx"
-PREFERRED_VERSION_gst-devtools:mx9-nxp-bsp              ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-libav:mx9-nxp-bsp        ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx9-nxp-bsp ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-python:mx9-nxp-bsp       ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx9-nxp-bsp  ??= "1.22.5.imx"
-PREFERRED_VERSION_gstreamer1.0-vaapi:mx9-nxp-bsp        ??= "1.22.5.imx"
+PREFERRED_VERSION_gst-devtools:mx8-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx8-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx8-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-python:mx8-nxp-bsp       ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx8-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-vaapi:mx8-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gst-devtools:mx9-nxp-bsp              ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx9-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx9-nxp-bsp ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-python:mx9-nxp-bsp       ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx9-nxp-bsp  ??= "1.24.0.imx"
+PREFERRED_VERSION_gstreamer1.0-vaapi:mx9-nxp-bsp        ??= "1.24.0.imx"
 
 # GStreamer downgrade ffmpeg
 PREFERRED_VERSION_ffmpeg:mx8-nxp-bsp ??= "4.4.1"
@@ -566,24 +566,18 @@ PREFERRED_PROVIDER_opencl-headers:imxgpu     ?= "imx-gpu-viv"
 PREFERRED_PROVIDER_opencl-icd-loader:imxgpu  ?= "imx-gpu-viv"
 PREFERRED_PROVIDER_virtual/opencl-icd:imxgpu ?= "imx-gpu-viv"
 
-PREFERRED_VERSION_weston:imx-nxp-bsp      ??= "12.0.3.imx"
+PREFERRED_VERSION_weston:imx-nxp-bsp      ??= "12.0.4.imx"
 # i.MX 6 & 7 stay on weston 10.0 for fbdev
 PREFERRED_VERSION_weston:mx6-nxp-bsp      ??= "10.0.5.imx"
 PREFERRED_VERSION_weston:mx7-nxp-bsp      ??= "10.0.5.imx"
 PREFERRED_VERSION_weston:imx-mainline-bsp   = ""
 
-PREFERRED_VERSION_wayland-protocols:mx6-nxp-bsp  ??= "1.32.imx"
-PREFERRED_VERSION_wayland-protocols:mx7-nxp-bsp  ??= "1.32.imx"
-PREFERRED_VERSION_wayland-protocols:mx8-nxp-bsp  ??= "1.32.imx"
-PREFERRED_VERSION_wayland-protocols:mx9-nxp-bsp  ??= "1.32.imx"
+PREFERRED_VERSION_wayland-protocols:imx-nxp-bsp  ??= "1.32.imx"
 
 PREFERRED_VERSION_xwayland:imx-nxp-bsp ??= "23.1.1.imx"
 
 # Use i.MX libdrm Version
-PREFERRED_VERSION_libdrm:mx6-nxp-bsp ??= "2.4.116.imx"
-PREFERRED_VERSION_libdrm:mx7-nxp-bsp ??= "2.4.116.imx"
-PREFERRED_VERSION_libdrm:mx8-nxp-bsp ??= "2.4.116.imx"
-PREFERRED_VERSION_libdrm:mx9-nxp-bsp ??= "2.4.116.imx"
+PREFERRED_VERSION_libdrm:imx-nxp-bsp ??= "2.4.116.imx"
 
 PREFERRED_VERSION_spirv-headers:imxvulkan            ??= "1.3.261.1.imx"
 PREFERRED_VERSION_spirv-tools:imxvulkan              ??= "1.3.261.1.imx"
@@ -593,12 +587,12 @@ PREFERRED_VERSION_vulkan-tools:imxvulkan             ??= "1.3.261.1.imx"
 PREFERRED_VERSION_vulkan-validation-layers:imxvulkan ??= "1.3.261.1.imx"
 
 # Use i.MX optee Version
-PREFERRED_VERSION_optee-os:mx8-nxp-bsp     ??= "4.0.0.imx"
-PREFERRED_VERSION_optee-os:mx9-nxp-bsp     ??= "4.0.0.imx"
-PREFERRED_VERSION_optee-client:mx8-nxp-bsp ??= "4.0.0.imx"
-PREFERRED_VERSION_optee-client:mx9-nxp-bsp ??= "4.0.0.imx"
-PREFERRED_VERSION_optee-test:mx8-nxp-bsp   ??= "4.0.0.imx"
-PREFERRED_VERSION_optee-test:mx9-nxp-bsp   ??= "4.0.0.imx"
+PREFERRED_VERSION_optee-os:mx8-nxp-bsp     ??= "4.2.0.imx"
+PREFERRED_VERSION_optee-os:mx9-nxp-bsp     ??= "4.2.0.imx"
+PREFERRED_VERSION_optee-client:mx8-nxp-bsp ??= "4.2.0.imx"
+PREFERRED_VERSION_optee-client:mx9-nxp-bsp ??= "4.2.0.imx"
+PREFERRED_VERSION_optee-test:mx8-nxp-bsp   ??= "4.2.0.imx"
+PREFERRED_VERSION_optee-test:mx9-nxp-bsp   ??= "4.2.0.imx"
 
 # Use i.MX opencv Version
 PREFERRED_VERSION_opencv:mx8-nxp-bsp ??= "4.6.0.imx"
@@ -659,9 +653,9 @@ WKS_FILE_DEPENDS:append:imx-generic-bsp:mx9-generic-bsp = " \
     ${@oe.utils.ifelse(d.getVar('UBOOT_PROVIDES_BOOT_CONTAINER') == '0', 'imx-boot', '')} \
 "
 
-SOC_DEFAULT_WKS_FILE ?= "imx-uboot-bootpart.wks.in"
-SOC_DEFAULT_WKS_FILE:mx8-generic-bsp ?= "imx-imx-boot-bootpart.wks.in"
+SOC_DEFAULT_WKS_FILE                 ?= "imx-uboot-bootpart.wks.in"
 SOC_DEFAULT_WKS_FILE:mxs-generic-bsp ?= "imx-uboot-mxs-bootpart.wks.in"
+SOC_DEFAULT_WKS_FILE:mx8-generic-bsp ?= "imx-imx-boot-bootpart.wks.in"
 SOC_DEFAULT_WKS_FILE:mx9-generic-bsp ?= "imx-imx-boot-bootpart.wks.in"
 
 WKS_FILE ?= "${SOC_DEFAULT_WKS_FILE}"
