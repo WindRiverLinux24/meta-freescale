@@ -166,6 +166,7 @@ DEFAULTTUNE:mx8qm-generic-bsp  ?= "cortexa72-cortexa53-crypto"
 DEFAULTTUNE:mx8x-generic-bsp   ?= "cortexa35-crypto"
 DEFAULTTUNE:mx8ulp-generic-bsp ?= "cortexa35-crypto"
 DEFAULTTUNE:mx93-generic-bsp   ?= "cortexa55"
+DEFAULTTUNE:mx95-generic-bsp   ?= "cortexa55"
 
 INHERIT += "machine-overrides-extender"
 
@@ -221,6 +222,7 @@ MACHINEOVERRIDES_EXTENDER:mx8dxl:use-nxp-bsp = "imx-generic-bsp:imx-nxp-bsp:imxf
 MACHINEOVERRIDES_EXTENDER:mx8ulp:use-nxp-bsp = "imx-generic-bsp:imx-nxp-bsp:imxdrm:imxgpu:imxgpu2d:imxgpu3d:imxvulkan:mx8-generic-bsp:mx8-nxp-bsp:mx8ulp-generic-bsp:mx8ulp-nxp-bsp"
 
 MACHINEOVERRIDES_EXTENDER:mx93:use-nxp-bsp  = "imx-generic-bsp:imx-nxp-bsp:imxdrm:imxpxp:mx9-generic-bsp:mx9-nxp-bsp:mx93-generic-bsp:mx93-nxp-bsp"
+MACHINEOVERRIDES_EXTENDER:mx95:use-nxp-bsp  = "imx-generic-bsp:imx-nxp-bsp:imxdrm:imxdpu:imxgpu:imxgpu2d:imxgpu3d:mx9-generic-bsp:mx9-nxp-bsp:mx95-generic-bsp:mx95-nxp-bsp"
 
 #######
 ### Mainline BSP specific overrides
@@ -264,6 +266,7 @@ MACHINEOVERRIDES_EXTENDER:mx8dxl:use-mainline-bsp = "imx-generic-bsp:imx-mainlin
 MACHINEOVERRIDES_EXTENDER:mx8ulp:use-mainline-bsp = "imx-generic-bsp:imx-mainline-bsp:mx8-generic-bsp:mx8-mainline-bsp:mx8ulp-generic-bsp:mx8ulp-mainline-bsp"
 
 MACHINEOVERRIDES_EXTENDER:mx93:use-mainline-bsp  = "imx-generic-bsp:imx-mainline-bsp:mx9-generic-bsp:mx9-mainline-bsp:mx93-generic-bsp:mx93-mainline-bsp"
+MACHINEOVERRIDES_EXTENDER:mx95:use-mainline-bsp  = "imx-generic-bsp:imx-mainline-bsp:mx9-generic-bsp:mx9-mainline-bsp:mx95-generic-bsp:mx95-mainline-bsp"
 
 MACHINEOVERRIDES_EXTENDER_FILTER_OUT = " \
     mx6 \
@@ -295,6 +298,7 @@ MACHINEOVERRIDES_EXTENDER_FILTER_OUT = " \
     mx8dxl \
     mx8ulp \
     mx93 \
+    mx95 \
 "
 
 MACHINEOVERRIDES_FILTERED_OUT_QA_ERROR = "%s overrides cannot be used and need conversion to use the new BSP-specific overrides. Check 'meta-freescale/scripts/convert-bsp-specific-overrides'."
@@ -323,6 +327,7 @@ MACHINE_SOCARCH_SUFFIX:mx8dx-nxp-bsp   = "-mx8"
 MACHINE_SOCARCH_SUFFIX:mx8dxl-nxp-bsp  = "-mx8xl"
 MACHINE_SOCARCH_SUFFIX:mx8ulp-nxp-bsp  = "-mx8ulp"
 MACHINE_SOCARCH_SUFFIX:mx93-nxp-bsp    = "-mx93"
+MACHINE_SOCARCH_SUFFIX:mx95-nxp-bsp    = "-mx95"
 
 # For Mainline we use a single SoC suffix as we don't have different build options
 MACHINE_SOCARCH_SUFFIX:imx-mainline-bsp = "-imx"
@@ -400,6 +405,8 @@ IMX_EXTRA_FIRMWARE:mx8m-generic-bsp   = "imx-boot-firmware-files"
 IMX_EXTRA_FIRMWARE:mx8x-generic-bsp   = "imx-sc-firmware imx-seco"
 IMX_EXTRA_FIRMWARE:mx8ulp-generic-bsp = "firmware-upower firmware-ele-imx"
 IMX_EXTRA_FIRMWARE:mx93-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx"
+PREFERRED_PROVIDER_virtual/imx-system-manager ??= "imx-system-manager"
+IMX_EXTRA_FIRMWARE:mx95-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx virtual/imx-system-manager imx-oei"
 
 # Firmware
 MACHINE_FIRMWARE ?= ""
@@ -420,6 +427,7 @@ MACHINE_FIRMWARE:append:mx8mp-generic-bsp    = " linux-firmware-imx-sdma-imx7d f
 MACHINE_FIRMWARE:append:mx8mq-generic-bsp    = " linux-firmware-imx-sdma-imx7d"
 MACHINE_FIRMWARE:append:mx8qxp-generic-bsp   = " linux-firmware-imx-sdma-imx7d firmware-imx-vpu-amphion"
 MACHINE_FIRMWARE:append:mx8dx-generic-bsp    = " linux-firmware-imx-sdma-imx7d firmware-imx-vpu-amphion"
+MACHINE_FIRMWARE:append:mx95-generic-bsp     = " firmware-imx-vpu-wave"
 MACHINE_FIRMWARE:append:imx-mainline-bsp     = " linux-firmware-imx-sdma-imx6q linux-firmware-imx-sdma-imx7d firmware-imx-vpu-imx6q firmware-imx-vpu-imx6d"
 
 MACHINE_EXTRA_RRECOMMENDS += "${MACHINE_FIRMWARE}"
@@ -566,6 +574,16 @@ PREFERRED_PROVIDER_opencl-headers:imxgpu     ?= "imx-gpu-viv"
 PREFERRED_PROVIDER_opencl-icd-loader:imxgpu  ?= "imx-gpu-viv"
 PREFERRED_PROVIDER_virtual/opencl-icd:imxgpu ?= "imx-gpu-viv"
 
+PREFERRED_PROVIDER_virtual/egl:mx95-nxp-bsp        ?= "mali-imx"
+PREFERRED_PROVIDER_virtual/libgles1:mx95-nxp-bsp   ?= "mali-imx"
+PREFERRED_PROVIDER_virtual/libgles2:mx95-nxp-bsp   ?= "mali-imx"
+PREFERRED_PROVIDER_virtual/libgles3:mx95-nxp-bsp   ?= "mali-imx"
+PREFERRED_PROVIDER_opencl-clhpp:mx95-nxp-bsp       ?= "opencl-clhpp"
+PREFERRED_PROVIDER_opencl-headers:mx95-nxp-bsp     ?= "opencl-headers"
+# install libmali-opencl-icd package as the loaders backend
+PREFERRED_PROVIDER_opencl-icd-loader:mx95-nxp-bsp  ?= "opencl-icd-loader"
+PREFERRED_PROVIDER_virtual/opencl-icd:mx95-nxp-bsp ?= "opencl-icd-loader"
+
 PREFERRED_VERSION_weston:imx-nxp-bsp      ??= "12.0.4.imx"
 # i.MX 6 & 7 stay on weston 10.0 for fbdev
 PREFERRED_VERSION_weston:mx6-nxp-bsp      ??= "10.0.5.imx"
@@ -579,12 +597,12 @@ PREFERRED_VERSION_xwayland:imx-nxp-bsp ??= "23.1.1.imx"
 # Use i.MX libdrm Version
 PREFERRED_VERSION_libdrm:imx-nxp-bsp ??= "2.4.116.imx"
 
-PREFERRED_VERSION_spirv-headers:imxvulkan            ??= "1.3.261.1.imx"
-PREFERRED_VERSION_spirv-tools:imxvulkan              ??= "1.3.261.1.imx"
-PREFERRED_VERSION_vulkan-headers:imxvulkan           ??= "1.3.261.1.imx"
-PREFERRED_VERSION_vulkan-loader:imxvulkan            ??= "1.3.261.1.imx"
-PREFERRED_VERSION_vulkan-tools:imxvulkan             ??= "1.3.261.1.imx"
-PREFERRED_VERSION_vulkan-validation-layers:imxvulkan ??= "1.3.261.1.imx"
+PREFERRED_VERSION_spirv-headers:imxvulkan            ??= "1.3.275.0.imx"
+PREFERRED_VERSION_spirv-tools:imxvulkan              ??= "1.3.275.0.imx"
+PREFERRED_VERSION_vulkan-headers:imxvulkan           ??= "1.3.275.0.imx"
+PREFERRED_VERSION_vulkan-loader:imxvulkan            ??= "1.3.275.0.imx"
+PREFERRED_VERSION_vulkan-tools:imxvulkan             ??= "1.3.275.0.imx"
+PREFERRED_VERSION_vulkan-validation-layers:imxvulkan ??= "1.3.275.0.imx"
 
 # Use i.MX optee Version
 PREFERRED_VERSION_optee-os:mx8-nxp-bsp     ??= "4.2.0.imx"

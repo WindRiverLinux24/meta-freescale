@@ -63,6 +63,12 @@ PROVIDES_OPENVX:mx8mm-nxp-bsp    = ""
 
 RPROVIDES:${PN}:imxgpu3d += "imx-gpu-viv"
 
+RPROVIDES_OPENCL               = "opencl-icd-loader-dev"
+RPROVIDES_OPENCL:mx7-nxp-bsp   = ""
+RPROVIDES_OPENCL:mx8mm-nxp-bsp = ""
+
+RPROVIDES:${PN}:append:imx-nxp-bsp = " ${RPROVIDES_OPENCL}"
+
 PE = "1"
 
 inherit fsl-eula-unpack
