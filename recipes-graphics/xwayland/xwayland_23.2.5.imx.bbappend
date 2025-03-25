@@ -1,7 +1,11 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
+FILESEXTRAPATHS:prepend := "${COREBASE}/meta/recipes-graphics/xwayland/xwayland:"
+
 SRC_URI:append:imxgpu = " \
     file://0001-Prefer-to-create-GLES2-context-for-glamor-EGL.patch \
+    file://CVE-2025-26594-1.patch \
+    file://CVE-2025-26594-2.patch \
 "
 
 OPENGL_PKGCONFIGS:remove:imxgpu = "${OPENGL_PKGCONFIGS_REMOVE_IMXGPU}"
