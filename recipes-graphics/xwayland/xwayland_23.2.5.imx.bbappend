@@ -9,6 +9,7 @@ SRC_URI:append:imxgpu = " \
     file://CVE-2025-26595.patch \
     file://CVE-2025-26596.patch \
     file://CVE-2025-26597.patch \
+    file://CVE-2025-26598.patch \
 "
 
 OPENGL_PKGCONFIGS:remove:imxgpu = "${OPENGL_PKGCONFIGS_REMOVE_IMXGPU}"
