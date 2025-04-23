@@ -130,6 +130,7 @@ IMX_DEFAULT_ATF_PROVIDER ??= "imx-atf"
 SOC_ATF_BOOT_UART_BASE                    = ""
 
 SOC_ATF_BOOT_UART_BASE:mx8m-generic-bsp   = "0x30890000"
+SOC_ATF_BOOT_UART_BASE:mx8mq-generic-bsp  = "0x30860000"
 ATF_BOOT_UART_BASE                       ?= "${SOC_ATF_BOOT_UART_BASE}"
 
 PREFERRED_PROVIDER_virtual/xserver      = "xserver-xorg"
@@ -183,7 +184,6 @@ IMX_SOC_REV:mx8dx-generic-bsp  ??= "C0"
 IMX_SOC_REV:mx8ulp-generic-bsp ??= \
     "${@bb.utils.contains('MACHINE_FEATURES', 'soc-reva0', 'A0', \
                                                            'A2', d)}"
-IMX_SOC_REV:mx91-generic-bsp   ??= "A0"
 IMX_SOC_REV:mx93-generic-bsp   ??= "A1"
 
 IMX_SOC_REV_LOWER   = "${@d.getVar('IMX_SOC_REV').lower()}"
@@ -414,7 +414,8 @@ IMX_EXTRA_FIRMWARE:mx8ulp-generic-bsp = "firmware-upower firmware-ele-imx"
 IMX_EXTRA_FIRMWARE:mx91-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx"
 IMX_EXTRA_FIRMWARE:mx93-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx"
 PREFERRED_PROVIDER_virtual/imx-system-manager ??= "imx-system-manager"
-IMX_EXTRA_FIRMWARE:mx95-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx virtual/imx-system-manager imx-oei"
+PREFERRED_PROVIDER_virtual/imx-oei ??= "imx-oei"
+IMX_EXTRA_FIRMWARE:mx95-generic-bsp   = "imx-boot-firmware-files firmware-ele-imx virtual/imx-system-manager virtual/imx-oei"
 
 # Firmware
 MACHINE_FIRMWARE ?= ""
